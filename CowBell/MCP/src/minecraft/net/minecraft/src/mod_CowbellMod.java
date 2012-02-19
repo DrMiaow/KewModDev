@@ -20,25 +20,23 @@ public class mod_CowbellMod extends BaseMod
 	// Properties
 
 	// The actual block
-	public static final Block cowbellBlock;
+	public static Block cowbellBlock;
 	
 	// The Item...
 	public static Item cowbellItem;
 	
-	// Constructors	
-	static 
-	{
-		// Create the block
-		cowbellBlock = new mod_CowbellBlock();
-		
-		// Create a cowbell item...
-		cowbellItem = (new Item(150)).setFull3D().setItemName("cowbell");		
-	}
 	
 	
     public mod_CowbellMod()
     {
     	//super();
+    	
+		// Create the block
+		cowbellBlock = new mod_CowbellBlock();
+		
+		// Create a cowbell item...
+		cowbellItem = (new Item(150)).setFull3D().setItemName("cowbell");		
+    	
     	
     	// Hook 
 		ModLoader.SetInGUIHook(this, true, true);
@@ -50,7 +48,7 @@ public class mod_CowbellMod extends BaseMod
     //@Override
     public String getVersion()
     {
-    	return "1.0.0";
+    	return "1.1.0";
     }
 
 	//@Override
