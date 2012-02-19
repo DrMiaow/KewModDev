@@ -28,18 +28,17 @@ public class mod_CowbellMod extends BaseMod
 	// Constructors	
 	static 
 	{
-		cowbellBlock = new mod_CowbellBlock();	
+		// Create the block
+		cowbellBlock = new mod_CowbellBlock();
 		
-		cowbellItem = (new Item(150)).setFull3D().setItemName("cowbell");
-		
+		// Create a cowbell item...
+		cowbellItem = (new Item(150)).setFull3D().setItemName("cowbell");		
 	}
 	
 	
     public mod_CowbellMod()
     {
     	//super();
-    	
-    	System.out.println("Kew's mod running constructor.");
     	
     	// Hook 
 		ModLoader.SetInGUIHook(this, true, true);
