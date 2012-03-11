@@ -26,21 +26,19 @@ public class mod_CowbellMod extends BaseMod
 	public static Item cowbellItem;
 	
 	
-	
     public mod_CowbellMod()
     {
-    	//super();
+    	super();
     	
 		// Create the block
 		cowbellBlock = new mod_CowbellBlock();
 		
 		// Create a cowbell item...
-		cowbellItem = (new Item(150)).setFull3D().setItemName("cowbell");		
-    	
-    	
+		//cowbellItem = (new Item(ModLoader.getUniqueBlockModelID(this,true))).setFull3D().setItemName("cowbell");		
+		
     	// Hook 
-		ModLoader.SetInGUIHook(this, true, true);
-		ModLoader.SetInGameHook(this, true, true);    	
+		ModLoader.setInGUIHook(this, true, true);
+		ModLoader.setInGameHook(this, true, true);    	
     }
 
     // Methods
@@ -56,12 +54,12 @@ public class mod_CowbellMod extends BaseMod
 	{
 			System.out.println("Loading \"Kew's Cowbell Mod\" - By Kew McParlane - 2012");
 			
-	    	ModLoader.RegisterBlock(cowbellBlock);
-	    	ModLoader.AddName(cowbellBlock, "Cowbell");    	                                                                       
+	    	ModLoader.registerBlock(cowbellBlock);
+	    	ModLoader.addName(cowbellBlock, "Cowbell");    	                                                                       
 	    	cowbellBlock.blockIndexInTexture = ModLoader.addOverride("/terrain.png","/cowbell_texture.png");
 	
-	    	ModLoader.AddName(cowbellItem, "Cowbell Block");	    	
-	    	cowbellItem.iconIndex = ModLoader.addOverride("/gui/items.png", "/cowbell_block.png");
+	    	//ModLoader.addName(cowbellItem, "Cowbell Block");	    	
+	    	//cowbellItem.iconIndex = ModLoader.addOverride("/gui/items.png", "/cowbell_block.png");
 	
 	    	//
 	    	// Here we define our recipe
@@ -85,7 +83,7 @@ public class mod_CowbellMod extends BaseMod
 	    	
 	    	// Add the recipe to Minecraft.
 	    	
-	    	ModLoader.AddRecipe(stack,recipe);
+	    	ModLoader.addRecipe(stack,recipe);
 	}	
 	
 	
@@ -97,10 +95,10 @@ public class mod_CowbellMod extends BaseMod
 	public boolean haveAddedToCreativeContainer = false;
 	
 	// On every tick of the GUI
-	public boolean OnTickInGUI(float f, Minecraft minecraft, GuiScreen guiscreen)
+	public boolean onTickInGUI(float f, Minecraft minecraft, GuiScreen guiscreen)
 	{		
 		// If we are on a server
-		if ((minecraft.theWorld == null) || minecraft.theWorld.multiplayerWorld) 
+		if ((minecraft.theWorld == null) || minecraft.theWorld.isRemote) 
 		{
 			//  We don't want to do this...			
 			return true;
