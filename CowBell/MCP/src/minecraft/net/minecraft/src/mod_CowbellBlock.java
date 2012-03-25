@@ -90,7 +90,7 @@ public class mod_CowbellBlock extends Block
 			}
 
 			// Set entity to a MooShroom
-			cow = (EntityLiving) EntityList.createEntityInWorld("MushroomCow", world);
+			cow = (EntityLiving) EntityList.createEntityByName("MushroomCow", world);
 		}
 		else if ((roll == 4) || (roll == 5) || (roll == 6))
 		{
@@ -101,10 +101,10 @@ public class mod_CowbellBlock extends Block
 			
 
 			// Set entity to a MooShroom
-			cow = (EntityLiving) EntityList.createEntityInWorld("MushroomCow", world);
+			cow = (EntityLiving) EntityList.createEntityByName("MushroomCow", world);
 
 			// Make it a baby
-			((EntityAnimal) cow).func_48122_d(-24000);
+			((EntityAnimal) cow).setGrowingAge(-24000);
 		}
 		else if (roll == 7)
 		{
@@ -114,10 +114,10 @@ public class mod_CowbellBlock extends Block
 			}
 
 			// Set entity to a MooShroom
-			cow = (EntityLiving) EntityList.createEntityInWorld("Cow", world);
+			cow = (EntityLiving) EntityList.createEntityByName("Cow", world);
 
 			// Make it a baby
-			((EntityAnimal) cow).func_48122_d(-24000);
+			((EntityAnimal) cow).setGrowingAge(-24000);
 		}
 		else
 		{
@@ -128,7 +128,7 @@ public class mod_CowbellBlock extends Block
 			
 
 			// Set entity to a Cow
-			cow = (EntityLiving) EntityList.createEntityInWorld("Cow", world);
+			cow = (EntityLiving) EntityList.createEntityByName("Cow", world);
 		}
 
 		// System.out.println(String.format("Block location %s %s %s.",i,j,k));
